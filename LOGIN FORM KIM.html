@@ -1,0 +1,108 @@
+<html lang="en"> 
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Pastel Login</title>
+
+<style>
+
+body{
+    background: linear-gradient(135deg, #ffd6e8, #d6f0ff, #e6d6ff);
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+form{
+    background-color: white;
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    width: 300px;
+    text-align: center;
+}
+
+h2{
+    color: #8a7cff;
+}
+
+input{
+    width:95%;
+    padding:10px;
+    margin:10px 0;
+    border-radius:8px;
+    border:1px solid #ddd;
+}
+
+button{
+    padding:10px 18px;
+    border:none;
+    border-radius:8px;
+    background:#b5a6ff;
+    color:white;
+    cursor:pointer;
+}
+
+#error-message{
+    color:red;
+    display:none;
+}
+
+</style>
+</head>
+
+<body>
+
+<form id="loginForm">
+
+<h2>Login</h2>
+
+<input type="text" id="username" placeholder="Enter username">
+
+<input type="password" id="password" placeholder="Enter password">
+
+<p id="error-message">Wrong username or password</p>
+
+<button type="submit">Submit</button>
+<button type="button" onclick="clearForm()">Cancel</button>
+
+</form>
+
+<script>
+
+// correct login
+var correctUsername = "admin";
+var correctPassword = "1234";
+
+// listen to form submit
+document.getElementById("loginForm").addEventListener("submit", function(event){
+
+    event.preventDefault(); // stop page reload
+
+    var enteredUsername = document.getElementById("username").value;
+    var enteredPassword = document.getElementById("password").value;
+
+    if(enteredUsername === correctUsername && enteredPassword === correctPassword){
+
+        window.location.href = "aboutme.html"; // open About Me
+
+    }else{
+
+        document.getElementById("error-message").style.display = "block";
+    }
+
+});
+
+// clear inputs
+function clearForm(){
+    document.getElementById("username").value="";
+    document.getElementById("password").value="";
+    document.getElementById("error-message").style.display="none";
+}
+
+</script>
+
+</body>
+</html>
